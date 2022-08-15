@@ -38,13 +38,6 @@
         margin: 0.5rem 0;
       }
     }
-
-    &.previewContent {
-      background: linear-gradient(var(--gray-100), transparent);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
   }
 }
 

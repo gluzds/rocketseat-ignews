@@ -23,7 +23,7 @@ export default function PostPreview({ post }: PostPreviewProps) {
   const router = useRouter();
 
   useEffect(() => {
-    if (session?.data.activeSubscription) {
+    if (session?.data?.activeSubscription) {
       router.push(`/posts/${post.slug}`)
     }
   }, [session])
@@ -38,7 +38,7 @@ export default function PostPreview({ post }: PostPreviewProps) {
           <h1>{post.title}</h1>
           <time>{post.updatedAt}</time>
           <div
-            className={`${styles.postContent} ${styles.previewContent}`}
+            className={`${styles.postContent}`}
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
           <div className={styles.continueReading}>
@@ -75,7 +75,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       year: 'numeric'
     })
   }
-
+  console.log(JSON.stringify(post))
   return {
     props: {
       post,
