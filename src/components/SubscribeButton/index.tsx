@@ -4,21 +4,17 @@ import { api } from '../../services/api';
 import { getStripeJs } from '../../services/stripe-js';
 import styles from './styles.module.scss';
 
-interface SubscribeButtonProps {
-  priceId: string;
-}
-
-export function SubscribeButton(props: SubscribeButtonProps) {
-  const { data: session } = useSession();
+export function SubscribeButton() {
+  const { data } = useSession();
   const router = useRouter();
 
   async function handleSubscribe() {
-    if (!session) {
+    if (!data) {
       signIn('github');
       return;
     }
 
-    if(session.activeSubscription){
+    if (data.activeSubscription) {
       router.push('/posts');
       return;
     }

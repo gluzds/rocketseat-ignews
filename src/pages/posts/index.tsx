@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { prismicClient } from '../../services/prismic';
 import styles from './styles.module.scss';
 
-type Post = {
+export type Post = {
   slug: string;
   title: string;
   excerpt: string;
@@ -44,7 +44,7 @@ export const getStaticProps: GetStaticProps = async () => {
     pageSize: 100
   })
 
-  const posts = response.results.map(post => {
+  const posts = response.results?.map(post => {
     return {
       slug: post.uid,
       title: post.data.title,

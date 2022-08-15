@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 import { SignInButton } from '../SignInButton';
 import { ActiveLink } from '../ActiveLink';
 
